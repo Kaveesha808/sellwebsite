@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Telegram Signal Auto Bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Login Page Specific Styles */
+        .auth-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+        .auth-links a {
+            color: #0088cc; /* var(--primary) fallback */
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .auth-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .divider {
+            margin: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram Signal<br><small>Auto Bot</small></span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
+                    <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+                
+                <div class="nav-buttons">
+                    <a href="register.html" class="btn btn-primary"><i class="fas fa-rocket"></i> Start Free</a>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Welcome <span class="gradient-text">Back</span></h1>
+            <p class="page-subtitle">Login to access your trading dashboard</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="contact-form-card">
+                    <h3><i class="fas fa-sign-in-alt"></i> Login</h3>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username or Email</label>
+                            <input type="text" id="username" name="username" required placeholder="Enter your username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        </div>
+                        
+                        <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember" style="margin-bottom: 0; font-size: 14px;">Remember me</label>
+                            </div>
+                            <a href="#" style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none;">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="auth-links">
+                        <p>Don't have an account? <a href="register.html">Sign Up Now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom" style="border: none; padding-top: 0; justify-content: center;">
+                <p>&copy; 2024 Telegram Signal Auto Bot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple Login Handling
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, you would verify credentials here
+            const btn = this.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Login functionality requires a backend connection.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
